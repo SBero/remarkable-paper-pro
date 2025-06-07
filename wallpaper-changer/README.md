@@ -28,7 +28,7 @@ chmod +x /home/root/wallpaper-changer.sh
 
 5. Install the service:
 ```
-.wallpaper-changer.sh install
+./wallpaper-changer.sh install
 ```
 
 ---
