@@ -84,6 +84,9 @@ Requires=wallpaper-changer.service
 [Timer]
 OnBootSec=5min
 OnUnitActiveSec=${INTERVAL_HOURS}h
+AccuracySec=1min
+Persistent=true
+AccuracySec=1min
 Unit=wallpaper-changer.service
 
 [Install]
