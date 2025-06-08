@@ -112,6 +112,8 @@ EOF
 Description=Run Wallpaper Changer hourly
 
 [Timer]
+OnCalendar=hourly
+OnActiveSec=1h
 OnBootSec=5min
 OnUnitActiveSec=1h
 AccuracySec=5min
