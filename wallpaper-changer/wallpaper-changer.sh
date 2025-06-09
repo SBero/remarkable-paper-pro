@@ -67,8 +67,8 @@ change_wallpaper() {
         date +%s > "$STATE_FILE"  # Update last change time
         
         # Restart xochitl to apply the change
-        #systemctl restart xochitl
-        #log_message "Restarted xochitl to apply wallpaper change"
+        # systemctl restart xochitl
+        # log_message "Restarted xochitl to apply wallpaper change"
     else
         log_message "ERROR: Failed to copy wallpaper"
         exit 1
@@ -112,8 +112,6 @@ EOF
 Description=Run Wallpaper Changer hourly
 
 [Timer]
-OnCalendar=hourly
-OnActiveSec=1h
 OnBootSec=5min
 OnUnitActiveSec=1h
 AccuracySec=5min
@@ -128,14 +126,14 @@ EOF
         cat > /etc/systemd/system/wallpaper-wake.service << EOF
 [Unit]
 Description=Change wallpaper on wake
-After=suspend.target
+After=suspend.target hybrid-sleep.target hibernate.target
 
 [Service]
 Type=oneshot
 ExecStart=/home/root/wallpaper-changer.sh wake
 
 [Install]
-WantedBy=suspend.target
+WantedBy=sleep.target
 EOF
 
         # Create boot service
